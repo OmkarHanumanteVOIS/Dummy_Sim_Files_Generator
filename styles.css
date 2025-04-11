@@ -1,0 +1,105 @@
+/* VZ Gradient Background */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    overflow: auto;
+}
+
+/* Hidden Utility Containers */
+.hidden {
+    display: none;
+}
+
+/* Dashboard Style */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard h1 {
+    color: #ff6a00; /* VZ Orange for the dashboard heading */
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.dashboard button {
+    background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
+    border: none;
+    padding: 12px 25px;
+    margin: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard button:hover {
+    background: linear-gradient(to right, #ff6a00, #e60000); /* Reverse gradient on hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 106, 0, 0.5); /* Glowing effect */
+}
+
+/* White Container Box */
+.container {
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    margin-bottom: 20px;
+    color: #000000; /* Black text inside the container */
+}
+
+/* Buttons Style */
+button {
+    background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
+    border: none;
+    padding: 12px 25px;
+    margin: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #ff6a00, #e60000); /* Reverse gradient on hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 106, 0, 0.5); /* Glowing effect */
+}
+
+/* Outputs Style */
+.output {
+    background: rgba(255, 255, 255, 1); /* White background */
+    color: #000000; /* Black text */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    word-wrap: break-word;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Input Fields */
+input {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16
