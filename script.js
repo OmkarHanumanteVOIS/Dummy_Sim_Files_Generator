@@ -1,14 +1,6 @@
-// Function to show the selected utility and hide the rest
-function showUtility(utility) {
-    const utilities = ['iccid', 'eid', 'imei'];
-    utilities.forEach((u) => {
-        const container = document.getElementById(`${u}-container`);
-        if (u === utility) {
-            container.classList.remove('hidden');
-        } else {
-            container.classList.add('hidden');
-        }
-    });
+// Redirect to the respective generator page
+function redirect(generator) {
+    window.location.href = `Dashboard/${generator}`;
 }
 
 // ICCID Generator Functions
