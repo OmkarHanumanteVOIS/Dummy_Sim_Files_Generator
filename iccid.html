@@ -9,13 +9,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>ICCID Generator</h1>
-        <div style="display: flex; flex-direction: column; align-items: center;">
+        <h1 style="color: #ff6a00; text-align: center;">ICCID Generator</h1>
+        
+        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+            <!-- Generate Single ICCID -->
             <button onclick="displayICCID()">Generate ICCID</button>
             <div class="output" id="iccid"></div>
         </div>
-        <h2>Generate Multiple ICCIDs</h2>
-        <div style="display: flex; flex-direction: column; align-items: center;">
+
+        <h2 style="color: #ff6a00; text-align: center; margin-top: 40px;">Generate Multiple ICCIDs</h2>
+        
+        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+            <!-- Input for multiple ICCIDs -->
             <input type="number" id="iccid-count" placeholder="Enter count (max 10)" min="1" max="10">
             <button onclick="displayMultipleICCID()">Generate Multiple ICCIDs</button>
             <div class="output" id="multiple-iccid"></div>
