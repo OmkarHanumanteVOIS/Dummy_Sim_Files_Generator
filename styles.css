@@ -29,27 +29,28 @@ h1 {
     margin-top: 20px;
 }
 
-/* Utility Boxes */
+/* Utility Box Styling for Links */
 .utility-box {
+    text-decoration: none; /* Remove underline from links */
     background: #ffffff; /* White background */
     color: #000000; /* Black text inside the box */
-    width: 250px; /* Fixed width for each box */
-    height: 150px; /* Fixed height for each box */
+    width: 250px; /* Fixed width */
+    height: 150px; /* Fixed height */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center; /* Center align text inside the box */
-    font-size: 1.2rem; /* Font size for box text */
+    text-align: center; /* Center align text */
+    font-size: 1.2rem; /* Font size for text */
     font-weight: bold;
 }
 
 .utility-box:hover {
     transform: scale(1.05); /* Zoom effect on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
 }
 
 /* White Container for Generator Pages */
