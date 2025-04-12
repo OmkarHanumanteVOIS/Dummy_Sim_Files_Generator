@@ -38,24 +38,25 @@ h1 {
 /* Utility Boxes with Cliparts */
 .utility-box {
     background: transparent; /* Transparent background */
-    color: #ffffff; /* White text for visibility */
-    width: 150px; /* Square size */
+    width: 150px; /* Square dimensions */
     height: 150px;
     display: flex;
+    flex-direction: column; /* Stack clipart and text vertically */
     justify-content: center;
     align-items: center;
-    border-radius: 10px; /* Optional: Rounded corners */
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem; /* Adjust text size */
     font-weight: bold;
     background-size: contain; /* Ensure clipart fits nicely */
     background-position: center;
     background-repeat: no-repeat;
 }
 
+/* Clipart Backgrounds */
 .utility-box[href*="eid.html"] {
     background-image: url("assets/eid.png"); /* Path to EID clipart */
 }
@@ -66,6 +67,14 @@ h1 {
 
 .utility-box[href*="imei.html"] {
     background-image: url("assets/imei.png"); /* Path to IMEI clipart */
+}
+
+/* Text Below Cliparts */
+.utility-box p {
+    margin-top: auto; /* Push text below the clipart */
+    color: #ff6a00; /* VZ orange text color */
+    font-size: 1rem; /* Adjust font size if needed */
+    text-align: center;
 }
 
 /* White Container for Generator Pages */
