@@ -1,109 +1,156 @@
-/* VZ Gradient Background */
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    margin: 0;
-    padding: 20px;
-    overflow: auto; /* Enables scrolling if content overflows */
-}
-
-/* White Container Box */
-.container {
-    width: 90%;
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #ffffff; /* White background */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Maintained shadow */
-    margin-bottom: 20px;
-    color: #000000; /* Black text inside the container */
-}
-
-/* Heading Styles with VZ Orange */
-h1, h2 {
-    color: #ff6a00; /* VZ Orange for headings */
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-/* Buttons with Matching Gradient */
-button {
-    background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange gradient */
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    color: #ffffff; /* White text for contrast */
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px; /* Rounded corners */
-    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition for effects */
-}
-
-button:hover {
-    background: linear-gradient(to right, #ff6a00, #e60000); /* Reverse gradient on hover */
-    transform: scale(1.05); /* Slightly enlarges button */
-}
-
-/* Output Box Styling */
-.output {
-    background: rgba(255, 255, 255, 1); /* White background for the output box */
-    color: #000000; /* Black text for readability */
-    padding: 10px;
-    border-radius: 5px; /* Rounded corners for a cleaner look */
-    width: 100%; /* Full width of the container */
-    overflow-x: auto; /* Enables horizontal scrolling for long content */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Adds subtle depth with shadow */
-    margin: 10px 0; /* Space between output boxes */
-    text-align: left; /* Align text for better formatting */
-    font-family: 'Courier New', monospace; /* Monospace font for code-style appearance */
-}
-
-/* Input Container */
-.input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    width: 100%; /* Ensure input containers scale properly */
-}
-
-/* Highlighted Input Boxes */
-.input-container input, .input-container select {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px; /* Smooth edges for inputs */
-    border: 2px solid #ff6a00; /* Highlighted border with VZ Orange */
-    margin-bottom: 10px;
-    width: 100%; /* Stretch input fields to match the container width */
-    text-align: center; /* Center align text inside inputs */
-    box-sizing: border-box; /* Includes padding and border in the input's total width */
-}
-
-.input-container label {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #000000; /* Black text for labels */
-    text-align: center;
-}
-
-/* Preformatted Text for Output */
-pre {
-    background: rgba(255, 255, 255, 1); /* White background for preformatted text */
-    color: #000000; /* Black text */
-    padding: 10px;
-    border-radius: 5px;
-    width: 100%;
-    overflow-x: auto; /* Maintains horizontal scrolling for long text */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    margin: 10px 0; /* Spacing for pre elements */
-    text-align: left; /* Align text for better readability */
-    font-family: 'Courier New', monospace; /* Optional: Monospace font for code-like appearance */
-}
+/* Background Styling */
+ body {
+     font-family: 'Arial', sans-serif;
+     background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
+     color: #ffffff;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     min-height: 100vh; /* Ensures the page stretches to full height */
+     margin: 0;
+     padding: 20px;
+     overflow: auto; /* Enables scrolling if content overflows */
+ }
+ 
+ /* Dashboard Heading */
+ h1 {
+     color: #ffffff; /* White text for heading */
+     font-size: 2.5rem;
+     margin-top: 20px;
+     margin-bottom: 40px;
+     text-align: center;
+ }
+ 
+ /* Dashboard Container */
+ .dashboard-container {
+     width: 90%;
+     max-width: 800px;
+     display: flex;
+     justify-content: center;
+     gap: 20px; /* Space between the utility boxes */
+     margin-top: 20px;
+     background: #ffffff; /* White background for the container */
+     padding: 20px;
+     border-radius: 10px; /* Rounded corners for container */
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+ }
+ 
+ /* Utility Boxes with Clickable Links */
+ .utility-box {
+     background: transparent; /* Transparent background */
+     width: 150px; /* Square dimensions */
+     height: 150px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 10px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+     cursor: pointer;
+     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for effects */
+     background-size: contain; /* Ensure clipart fits nicely */
+     background-position: center;
+     background-repeat: no-repeat;
+     text-decoration: none; /* Remove underline from links */
+ }
+ 
+ /* Hover Effect: Enlarge and Highlight */
+ .utility-box:hover {
+     transform: scale(1.1); /* Slightly enlarge the box */
+     box-shadow: 0 6px 15px rgba(255, 106, 0, 0.5); /* Orange glow effect */
+ }
+ 
+ /* Click Animation: Press Down Effect */
+ .utility-box:active {
+     transform: scale(0.95); /* Slightly shrink for a press effect */
+     box-shadow: 0 4px 10px rgba(255, 106, 0, 0.4); /* Subtle shadow change */
+ }
+ 
+ /* Hide Text */
+ .utility-box p {
+     visibility: hidden; /* Make text invisible */
+     margin: 0; /* Remove any space caused by the text */
+ }
+ 
+ /* Clipart Backgrounds */
+ .utility-box[href*="eid.html"] {
+     background-image: url("assets/eid.png");
+ }
+ 
+ .utility-box[href*="iccid.html"] {
+     background-image: url("assets/iccid.png");
+ }
+ 
+ .utility-box[href*="imei.html"] {
+     background-image: url("assets/imei.png");
+ }
+ 
+ .utility-box[href*="dummy-esim.html"] {
+     background-image: url("assets/esim.png"); /* Add your Dummy eSIM Generator clipart */
+ }
+ 
+ /* Text Below Cliparts */
+ .utility-box p {
+     margin-top: auto; /* Push text below the clipart */
+     color: #ff6a00; /* VZ orange text color */
+     font-size: 1rem; /* Adjust font size if needed */
+     text-align: center;
+ }
+ 
+ /* White Container for Generator Pages */
+ .container {
+     width: 90%;
+     max-width: 800px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     background: #ffffff; /* White background for clarity */
+     padding: 20px;
+     border-radius: 10px; /* Rounded corners */
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+     margin-bottom: 20px;
+     color: #000000; /* Black text inside the container */
+ }
+ 
+ /* Buttons */
+ button {
+     background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange gradient */
+     border: none;
+     padding: 12px 25px;
+     margin: 10px;
+     color: #ffffff; /* White text for readability */
+     font-size: 16px;
+     font-weight: bold;
+     cursor: pointer;
+     border-radius: 8px; /* Rounded corners for buttons */
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+ 
+ button:hover {
+     background: linear-gradient(to right, #ff6a00, #e60000); /* Reverse gradient on hover */
+     transform: scale(1.05); /* Zoom effect on hover */
+     box-shadow: 0 4px 10px rgba(255, 106, 0, 0.5); /* Glowing effect */
+ }
+ 
+ /* Outputs */
+ .output {
+     background: rgba(255, 255, 255, 1); /* White background for outputs */
+     color: #000000; /* Black text */
+     padding: 10px;
+     margin: 10px 0;
+     border-radius: 5px;
+     width: 100%;
+     text-align: center;
+     word-wrap: break-word; /* Wraps long words inside the box */
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+ }
+ 
+ /* Inputs */
+ input {
+     padding: 10px;
+     margin: 10px;
+     font-size: 16px;
+     border-radius: 5px;
+     border: 2px solid #ff6a00; /* Orange border for inputs */
+     background: #ffffff; /* White background for clarity */
+     color: #000000; /* Black text inside input fields */
+ }
