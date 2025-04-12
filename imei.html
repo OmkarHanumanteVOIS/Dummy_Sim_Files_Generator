@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMEI Generator</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1 style="color: #ff6a00; text-align: center;">IMEI Generator</h1>
-        
-        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-            <!-- Generate Single IMEI -->
+        <h1>IMEI Generator</h1>
+        <div style="display: flex; flex-direction: column; align-items: center;">
             <button onclick="displayIMEI()">Generate IMEI</button>
             <div class="output" id="imei"></div>
         </div>
-
-        <h2 style="color: #ff6a00; text-align: center; margin-top: 40px;">Generate Multiple IMEIs</h2>
-        
-        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-            <!-- Input for multiple IMEIs -->
+        <h2>Generate Multiple IMEIs</h2>
+        <div style="display: flex; flex-direction: column; align-items: center;">
             <input type="number" id="imei-count" placeholder="Enter count (max 10)" min="1" max="10">
             <button onclick="displayMultipleIMEI()">Generate Multiple IMEIs</button>
             <div class="output" id="multiple-imei"></div>
