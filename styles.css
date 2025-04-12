@@ -4,40 +4,41 @@ body {
     background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
     color: #ffffff;
     display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center; /* Vertical centering */
-    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensures the page stretches to full height */
     margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prevent unwanted scrolling */
+    padding: 20px;
+    overflow: auto; /* Enables scrolling if content overflows */
 }
 
 /* Dashboard Heading */
 h1 {
     color: #ffffff; /* White text for heading */
     font-size: 2.5rem;
+    margin-top: 20px;
+    margin-bottom: 40px;
     text-align: center;
-    margin-bottom: 40px; /* Space below the heading */
 }
 
 /* Dashboard Container */
 .dashboard-container {
     display: flex;
-    justify-content: center; /* Align boxes horizontally */
-    gap: 20px; /* Space between the boxes */
+    justify-content: center;
+    gap: 20px; /* Space between the utility boxes */
+    margin-top: 20px;
 }
 
-/* Utility Boxes */
+/* Utility Box Styling for Links */
 .utility-box {
-    text-decoration: none; /* Remove underline for links */
+    text-decoration: none; /* Remove underline from links */
     background: #ffffff; /* White background */
     color: #000000; /* Black text inside the box */
     width: 250px; /* Fixed width */
     height: 150px; /* Fixed height */
     display: flex;
-    flex-direction: column; /* Stack image and text vertically (if needed later) */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
+    justify-content: center;
+    align-items: center;
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     cursor: pointer;
@@ -50,4 +51,63 @@ h1 {
 .utility-box:hover {
     transform: scale(1.05); /* Zoom effect on hover */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+/* White Container for Generator Pages */
+.container {
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff; /* White background for clarity */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    margin-bottom: 20px;
+    color: #000000; /* Black text inside the container */
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange gradient */
+    border: none;
+    padding: 12px 25px;
+    margin: 10px;
+    color: #ffffff; /* White text for readability */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px; /* Rounded corners for buttons */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #ff6a00, #e60000); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Zoom effect on hover */
+    box-shadow: 0 4px 10px rgba(255, 106, 0, 0.5); /* Glowing effect */
+}
+
+/* Outputs */
+.output {
+    background: rgba(255, 255, 255, 1); /* White background for outputs */
+    color: #000000; /* Black text */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    word-wrap: break-word; /* Wraps long words inside the box */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Inputs */
+input {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #ff6a00; /* Orange border for inputs */
+    background: #ffffff; /* White background for clarity */
+    color: #000000; /* Black text inside input fields */
 }
