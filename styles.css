@@ -46,11 +46,23 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for effects */
     background-size: contain; /* Ensure clipart fits nicely */
     background-position: center;
     background-repeat: no-repeat;
     text-decoration: none; /* Remove underline from links */
+}
+
+/* Hover Effect: Enlarge and Highlight */
+.utility-box:hover {
+    transform: scale(1.1); /* Slightly enlarge the box */
+    box-shadow: 0 6px 15px rgba(255, 106, 0, 0.5); /* Orange glow effect */
+}
+
+/* Click Animation: Press Down Effect */
+.utility-box:active {
+    transform: scale(0.95); /* Slightly shrink for a press effect */
+    box-shadow: 0 4px 10px rgba(255, 106, 0, 0.4); /* Subtle shadow change */
 }
 
 /* Hide Text */
