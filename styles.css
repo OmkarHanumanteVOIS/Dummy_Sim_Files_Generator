@@ -35,38 +35,41 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
 }
 
-/* Utility Boxes with Cliparts */
+/* Utility Boxes with Clickable Links */
 .utility-box {
     background: transparent; /* Transparent background */
     width: 150px; /* Square dimensions */
     height: 150px;
     display: flex;
-    flex-direction: column; /* Stack clipart and text vertically */
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    font-size: 1rem; /* Adjust text size */
-    font-weight: bold;
     background-size: contain; /* Ensure clipart fits nicely */
     background-position: center;
     background-repeat: no-repeat;
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Hide Text */
+.utility-box p {
+    visibility: hidden; /* Make text invisible */
+    margin: 0; /* Remove any space caused by the text */
 }
 
 /* Clipart Backgrounds */
 .utility-box[href*="eid.html"] {
-    background-image: url("assets/eid.png"); /* Path to EID clipart */
+    background-image: url("assets/eid.png");
 }
 
 .utility-box[href*="iccid.html"] {
-    background-image: url("assets/iccid.png"); /* Path to ICCID clipart */
+    background-image: url("assets/iccid.png");
 }
 
 .utility-box[href*="imei.html"] {
-    background-image: url("assets/imei.png"); /* Path to IMEI clipart */
+    background-image: url("assets/imei.png");
 }
 
 /* Text Below Cliparts */
