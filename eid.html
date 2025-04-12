@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EID Generator</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1 style="color: #ff6a00; text-align: center;">EID Generator</h1>
-        
-        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-            <!-- Generate Single EID -->
+        <h1>EID Generator</h1>
+        <div style="display: flex; flex-direction: column; align-items: center;">
             <button onclick="generateAndCheckNumber()">Generate Single EID</button>
             <div class="output" id="eid"></div>
         </div>
-
-        <h2 style="color: #ff6a00; text-align: center; margin-top: 40px;">Generate Multiple EIDs</h2>
-        
-        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-            <!-- Input for multiple EIDs -->
+        <h2>Generate Multiple EIDs</h2>
+        <div style="display: flex; flex-direction: column; align-items: center;">
             <input type="number" id="eid-count" placeholder="Enter count (max 10)" min="1" max="10">
             <button onclick="generateMultipleEIDs()">Generate Multiple EIDs</button>
             <div class="output" id="multiple-eid"></div>
