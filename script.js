@@ -1,6 +1,6 @@
 // Redirect to the respective generator page
 function redirect(generator) {
-    window.location.href = `${generator}.html`;
+    window.location.href = `Dashboard/${generator}`;
 }
 
 // ICCID Generator Functions
