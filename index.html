@@ -4,24 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eSIM Utility Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <!-- Dashboard Heading -->
     <h1>eSIM Utility Dashboard</h1>
     
-    <!-- Horizontal White Boxes -->
+    <!-- Horizontal White Boxes with Links -->
     <div class="dashboard-container">
-        <div class="utility-box" onclick="redirect('iccid')">
+        <a href="iccid.html" class="utility-box">
             <p>ICCID Generator</p>
-        </div>
-        <div class="utility-box" onclick="redirect('eid')">
+        </a>
+        <a href="eid.html" class="utility-box">
             <p>EID Generator</p>
-        </div>
-        <div class="utility-box" onclick="redirect('imei')">
+        </a>
+        <a href="imei.html" class="utility-box">
             <p>IMEI Generator</p>
-        </div>
+        </a>
     </div>
 </body>
 </html>
