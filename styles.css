@@ -84,6 +84,10 @@ h1 {
     background-image: url("assets/imei.png");
 }
 
+.utility-box[href*="dummy-esim.html"] {
+    background-image: url("assets/esim.png"); /* Add your Dummy eSIM Generator clipart */
+}
+
 /* Text Below Cliparts */
 .utility-box p {
     margin-top: auto; /* Push text below the clipart */
