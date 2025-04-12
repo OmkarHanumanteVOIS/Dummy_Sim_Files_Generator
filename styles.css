@@ -23,33 +23,49 @@ h1 {
 
 /* Dashboard Container */
 .dashboard-container {
+    width: 90%;
+    max-width: 800px;
     display: flex;
     justify-content: center;
     gap: 20px; /* Space between the utility boxes */
     margin-top: 20px;
+    background: #ffffff; /* White background for the container */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
 }
 
-/* Utility Boxes */
+/* Utility Boxes with Cliparts */
 .utility-box {
-    background: #ffffff; /* White background */
-    color: #000000; /* Black text inside the box */
-    width: 250px; /* Fixed width for each box */
-    height: 150px; /* Fixed height for each box */
+    background: transparent; /* Transparent background */
+    color: #ffffff; /* White text for visibility */
+    width: 150px; /* Square size */
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center; /* Center align text inside the box */
-    font-size: 1.2rem; /* Font size for box text */
+    text-align: center;
+    font-size: 1.2rem;
     font-weight: bold;
+    background-size: contain; /* Ensure clipart fits nicely */
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.utility-box:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on hover */
+.utility-box[href*="eid.html"] {
+    background-image: url("assets/eid.png"); /* Path to EID clipart */
+}
+
+.utility-box[href*="iccid.html"] {
+    background-image: url("assets/iccid.png"); /* Path to ICCID clipart */
+}
+
+.utility-box[href*="imei.html"] {
+    background-image: url("assets/imei.png"); /* Path to IMEI clipart */
 }
 
 /* White Container for Generator Pages */
