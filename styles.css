@@ -95,6 +95,15 @@
      font-size: 1rem; /* Adjust font size if needed */
      text-align: center;
  }
+
+/* Description Text Below Boxes */
+.box-description {
+    color: #ff6a00; /* VZ Orange for the text */
+    font-size: 1.2rem; /* Slightly larger font for visibility */
+    text-align: center;
+    margin-top: 5px; /* Add spacing above the text */
+    font-weight: bold; /* Make the text more prominent */
+}
  
  /* White Container for Generator Pages */
  .container {
