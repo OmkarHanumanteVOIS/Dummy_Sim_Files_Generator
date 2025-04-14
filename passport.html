@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Number Generator</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Same CSS for consistency -->
+</head>
+<body>
+    <div class="container">
+        <h1>Passport Number Generator</h1>
+        <div class="input-container">
+            <label for="entryCount">Number of Passport Numbers (1-10):</label>
+            <input type="number" id="entryCount" min="1" max="10" value="1">
+        </div>
+        <button onclick="generatePassportNumbers()">Generate</button>
+        <h2>Generated Passport Numbers</h2>
+        <pre id="output" class="output"></pre>
+    </div>
+    <script src="passport.js"></script>
+</body>
+</html>
