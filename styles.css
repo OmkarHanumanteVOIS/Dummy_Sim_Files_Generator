@@ -105,6 +105,10 @@
  .utility-box[href*="dummy-esim.html"] {
      background-image: url("assets/esim.png"); /* Add your Dummy eSIM Generator clipart */
  }
+
+.utility-box[href*="passport.html"] {
+    background-image: url("assets/passport.png"); /* Add your passport clipart here */
+}
  
  /* Text Below Cliparts */
  .utility-box p {
