@@ -105,6 +105,18 @@
  .utility-box[href*="dummy-esim.html"] {
      background-image: url("assets/esim.png"); /* Add your Dummy eSIM Generator clipart */
  }
+
+.utility-box[href*="passport.html"] {
+    background-image: url("assets/passport.png"); /* Passport Generator clipart */
+}
+
+.utility-box[href*="bank-account.html"] {
+    background-image: url("assets/bank.png"); /* Bank Account Generator clipart */
+}
+
+.utility-box[href*="kvk-number.html"] {
+    background-image: url("assets/kvk.png"); /* KVK Number Generator clipart */
+}
  
  /* Text Below Cliparts */
  .utility-box p {
