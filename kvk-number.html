@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KVK Number Generator</title>
+    <style>
+        /* VZ Gradient Background */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        /* White Container Box */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #ffffff; /* White background */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Maintained shadow */
+            margin-bottom: 20px;
+            color: #000000; /* Black text inside the container */
+        }
+
+        /* Heading Styles with VZ Orange */
+        h1, h2 {
+            color: #ff6a00; /* VZ Orange for headings */
+            margin-bottom: 10px;
+        }
+
+        /* Buttons with Matching Gradient */
+        button {
+            background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange gradient */
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            color: #ffffff; /* White text for contrast */
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #ff6a00, #e60000); /* Reverse gradient on hover */
+            transform: scale(1.05);
+        }
+
+        /* Input Container */
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Highlighted Input Boxes */
+        .input-container input, .input-container textarea {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #ff6a00; /* Highlighted border with VZ Orange */
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .input-container label {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #000000; /* Black text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>KVK Number Generator</h1>
+
+        <!-- Single KVK Number Generation -->
+        <h2>Generate a Single KVK Number</h2>
+        <div class="input-container">
+            <label for="identityDropdown">Choose a Business Identity:</label>
+            <select id="identityDropdown">
+                <option value="soleProprietorship">Sole Proprietorship (Eenmanszaak)</option>
+                <option value="generalPartnership">General Partnership (VOF)</option>
+                <option value="limitedPartnership">Limited Partnership (CV)</option>
+                <option value="privateLimitedCompany">Private Limited Company (BV)</option>
+                <option value="publicLimitedCompany">Public Limited Company (NV)</option>
+                <option value="foundation">Foundation (Stichting)</option>
+                <option value="association">Association (Vereniging)</option>
+                <option value="cooperative">Cooperative (Coöperatie)</option>
+            </select>
+        </div>
+        <button onclick="generateKVK()">Generate Single KVK Number</button>
+        <div class="input-container">
+            <label for="kvkNumber">Generated KVK Number:</label>
+            <input type="text" id="kvkNumber" readonly>
+        </div>
+
+        <!-- Multiple KVK Numbers Generation -->
+        <h2>Generate Multiple KVK Numbers</h2>
+        <div class="input-container">
+            <label for="countInput">Enter Count (Max = 10):</label>
+            <input type="number" id="countInput" min="1" max="10" placeholder="Enter count">
+        </div>
+        <button onclick="generateMultipleKVK()">Generate Multiple KVK Numbers</button>
+        <div class="input-container">
+            <label for="kvkNumbers">Generated KVK Numbers:</label>
+            <textarea id="kvkNumbers" rows="5" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate a single KVK number
+        function generateKVK() {
+            const identityDropdown = document.getElementById('identityDropdown');
+            const selectedIdentity = identityDropdown.value;
+
+            // Generate a random 8-digit number
+            const kvkNumber = Math.floor(10000000 + Math.random() * 90000000);
+
+            // Display the number in the text box
+            document.getElementById('kvkNumber').value = kvkNumber;
+
+            console.log(`Generated Single KVK Number for ${selectedIdentity}: ${kvkNumber}`);
+        }
+
+        // Function to generate multiple KVK numbers
+        function generateMultipleKVK() {
+            const identityDropdown = document.getElementById('identityDropdown');
+            const selectedIdentity = identityDropdown.value;
+            const countInput = document.getElementById('countInput');
+            const count = parseInt(countInput.value, 10);
+            const kvkNumbersField = document.getElementById('kvkNumbers');
+
+            // Validate count input
+            if (isNaN(count) || count < 1 || count > 10) {
+                alert('Please enter a valid count between 1 and 10.');
+                return;
+            }
+
+            let kvkNumbers = [];
+            for (let i = 0; i < count; i++) {
+                // Generate a random 8-digit number
+                kvkNumbers.push(Math.floor(10000000 + Math.random() * 90000000));
+            }
+
+            // Display the numbers in the textarea
+            kvkNumbersField.value = kvkNumbers.join('\n');
+
+            console.log(`Generated Multiple KVK Numbers for ${selectedIdentity}:`, kvkNumbers);
+        }
+    </script>
+</body>
+</html>
