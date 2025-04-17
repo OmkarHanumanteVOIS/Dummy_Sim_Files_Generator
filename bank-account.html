@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank IBAN Generator</title>
+    <style>
+        /* VZ Gradient Background */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        /* White Container Box */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #ffffff; /* White background */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Maintained shadow */
+            margin-bottom: 20px;
+            color: #000000; /* Black text inside the container */
+        }
+
+        /* Heading Styles with VZ Orange */
+        h1, h2 {
+            color: #ff6a00; /* VZ Orange for headings */
+            margin-bottom: 10px;
+        }
+
+        /* Buttons with Matching Gradient */
+        button {
+            background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange gradient */
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            color: #ffffff; /* White text for contrast */
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #ff6a00, #e60000); /* Reverse gradient on hover */
+            transform: scale(1.05);
+        }
+
+        /* Input Container */
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Highlighted Input Boxes */
+        .input-container select, .input-container input, .input-container textarea, .input-container p {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #ff6a00; /* Highlighted border with VZ Orange */
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: center;
+            background: #ffffff; /* White background for readability */
+            color: #000000; /* Black text for clarity */
+        }
+
+        .input-container label {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #000000; /* Black text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bank IBAN Generator</h1>
+
+        <!-- Single IBAN Generation -->
+        <h2>Generate a Single IBAN</h2>
+        <div class="input-container">
+            <label for="bank">Choose a bank:</label>
+            <select id="bank">
+                <option value="">--Select a Bank--</option>
+                <option value="INGB">ING Bank</option>
+                <option value="ABNA">ABN AMRO</option>
+                <option value="SNSB">SNS Bank</option>
+                <option value="RABO">Rabobank</option>
+                <option value="AEGO">Aegon</option>
+                <option value="ASNB">ASN Bank</option>
+                <option value="BINB">Binck Bank</option>
+                <option value="KNAB">KNAB Bank</option>
+                <option value="TRIO">Triodos Bank</option>
+            </select>
+        </div>
+        <button onclick="generateIBAN()">Generate Single IBAN</button>
+        <div class="input-container">
+            <p id="ibanResult">Generated IBAN will appear here.</p>
+        </div>
+
+        <!-- Multiple IBANs Generation -->
+        <h2>Generate Multiple IBANs</h2>
+        <div class="input-container">
+            <label for="countInput">Enter Count (Max = 10):</label>
+            <input type="number" id="countInput" min="1" max="10" placeholder="Enter count">
+        </div>
+        <button onclick="generateMultipleIBANs()">Generate Multiple IBANs</button>
+        <div class="input-container">
+            <label for="ibanResults">Generated IBANs:</label>
+            <textarea id="ibanResults" rows="5" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate a single IBAN
+        function generateIBAN() {
+            const bankCode = document.getElementById("bank").value;
+            const ibanResult = document.getElementById("ibanResult");
+            
+            if (!bankCode) {
+                ibanResult.textContent = "Please select a bank.";
+                ibanResult.style.color = "red"; // Display error in red
+                return;
+            }
+
+            const countryCode = "NL"; // Country code for the Netherlands
+            const checkDigits = Math.floor(10 + Math.random() * 89); // Random 2-digit check digits
+            const accountNumber = String(Math.floor(Math.random() * 10000000000)).padStart(10, '0'); // 10-digit account number
+
+            const iban = `${countryCode}${checkDigits}${bankCode}${accountNumber}`;
+            ibanResult.textContent = `Generated IBAN: ${iban}`;
+            ibanResult.style.color = "#000000"; // Reset color to default
+        }
+
+        // Function to generate multiple IBANs
+        function generateMultipleIBANs() {
+            const bankCode = document.getElementById("bank").value;
+            const countInput = document.getElementById("countInput");
+            const count = parseInt(countInput.value, 10);
+            const ibanResults = document.getElementById("ibanResults");
+
+            // Validate inputs
+            if (!bankCode) {
+                alert("Please select a bank.");
+                return;
+            }
+            if (isNaN(count) || count < 1 || count > 10) {
+                alert("Please enter a valid count between 1 and 10.");
+                return;
+            }
+
+            let ibans = [];
+            for (let i = 0; i < count; i++) {
+                const countryCode = "NL";
+                const checkDigits = Math.floor(10 + Math.random() * 89);
+                const accountNumber = String(Math.floor(Math.random() * 10000000000)).padStart(10, '0');
+                const iban = `${countryCode}${checkDigits}${bankCode}${accountNumber}`;
+                ibans.push(iban);
+            }
+
+            // Display the IBANs in the textarea
+            ibanResults.value = ibans.join('\n');
+        }
+    </script>
+</body>
+</html>
