@@ -1,0 +1,195 @@
+/* Background Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensures the page stretches to full height */
+    margin: 0;
+    padding: 20px;
+    overflow: auto; /* Enables scrolling if content overflows */
+}
+
+/* Dashboard Heading */
+h1 {
+    color: #ffffff; /* White text for heading */
+    font-size: 2.5rem;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to the next row if needed */
+    justify-content: center; /* Centers the items */
+    gap: 30px; /* Space between items */
+    margin-top: 20px;
+    background: #ffffff; /* White background for the container */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+/* Utility Box and Description Wrapper */
+.utility-box-wrapper {
+    display: flex;
+    flex-direction: column; /* Stacks the box and description vertically */
+    align-items: center; /* Centers the box and text horizontally */
+    text-align: center; /* Centers the description text */
+    width: 150px; /* Matches the box width */
+}
+
+/* Description Text Below Boxes */
+.box-description {
+    color: #ff6a00; /* VZ Orange for the text */
+    font-size: 1rem; /* Medium size text */
+    font-weight: bold; /* Makes it stand out */
+    margin-top: 40px; /* Adds space above the text */
+}
+
+/* Utility Boxes with Clickable Links */
+.utility-box {
+    background: transparent; /* Transparent background */
+    width: 150px; /* Square dimensions */
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for effects */
+    background-size: 70%; /* Make icons slightly smaller */
+    background-position: center; /* Ensure icons are centered */
+    background-repeat: no-repeat;
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Hover Effect: Enlarge and Highlight */
+.utility-box:hover {
+    transform: scale(1.1); /* Slightly enlarge the box */
+    box-shadow: 0 6px 15px rgba(255, 106, 0, 0.5); /* Orange glow effect */
+}
+
+/* Click Animation: Press Down Effect */
+.utility-box:active {
+    transform: scale(0.95); /* Slightly shrink for a press effect */
+    box-shadow: 0 4px 10px rgba(255, 106, 0, 0.4); /* Subtle shadow change */
+}
+
+/* Hide Text */
+.utility-box p {
+    visibility: hidden; /* Make text invisible */
+    margin: 0; /* Remove any space caused by the text */
+}
+
+/* Clipart Backgrounds */
+.utility-box[href*="eid.html"] {
+    background-image: url("assets/eid.png");
+}
+
+.utility-box[href*="iccid.html"] {
+    background-image: url("assets/iccid.png");
+}
+
+.utility-box[href*="imei.html"] {
+    background-image: url("assets/imei.png");
+}
+
+.utility-box[href*="dummy-esim.html"] {
+    background-image: url("assets/esim.png"); /* Add your Dummy eSIM Generator clipart */
+}
+
+.utility-box[href*="passport.html"] {
+    background-image: url("assets/passport.png"); /* Passport Generator clipart */
+}
+
+.utility-box[href*="bank-account.html"] {
+    background-image: url("assets/bank.png"); /* Bank Account Generator clipart */
+}
+
+.utility-box[href*="kvk-number.html"] {
+    background-image: url("assets/kvk.png"); /* KVK Number Generator clipart */
+}
+
+/* Text Below Cliparts */
+.utility-box p {
+    margin-top: auto; /* Push text below the clipart */
+    color: #ff6a00; /* VZ orange text color */
+    font-size: 1rem; /* Adjust font size if needed */
+    text-align: center;
+}
+
+/* Description Text Below Boxes */
+.box-description {
+    color: #ff6a00; /* VZ Orange for the text */
+    font-size: 1.2rem; /* Slightly larger font for visibility */
+    text-align: center;
+    margin-top: 5px; /* Add spacing above the text */
+    font-weight: bold; /* Make the text more prominent */
+}
+
+/* White Container for Generator Pages */
+.container {
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff; /* White background for clarity */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    margin-bottom: 20px;
+    color: #000000; /* Black text inside the container */
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange gradient */
+    border: none;
+    padding: 12px 25px;
+    margin: 10px;
+    color: #ffffff; /* White text for readability */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px; /* Rounded corners for buttons */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #ff6a00, #e60000); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Zoom effect on hover */
+    box-shadow: 0 4px 10px rgba(255, 106, 0, 0.5); /* Glowing effect */
+}
+
+/* Outputs */
+.output {
+    background: rgba(255, 255, 255, 1); /* White background for outputs */
+    color: #000000; /* Black text */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    word-wrap: break-word; /* Wraps long words inside the box */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Inputs */
+input {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #ff6a00; /* Orange border for inputs */
+    background: #ffffff; /* White background for clarity */
+    color: #000000; /* Black text inside input fields */
+}
