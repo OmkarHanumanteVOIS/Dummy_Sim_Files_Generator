@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Generator</title>
+    <style>
+        /* VZ Gradient Background */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        /* White Container Box */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #ffffff; /* White background */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Maintained shadow */
+            margin-bottom: 20px;
+            color: #000000; /* Black text inside the container */
+        }
+
+        /* Heading Styles with VZ Orange */
+        h1, h2 {
+            color: #ff6a00; /* VZ Orange for headings */
+            margin-bottom: 10px;
+        }
+
+        /* Buttons with Matching Gradient */
+        button {
+            background: linear-gradient(to right, #e60000, #ff6a00); /* Vodafone Red to Ziggo Orange gradient */
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            color: #ffffff; /* White text for contrast */
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #ff6a00, #e60000); /* Reverse gradient on hover */
+            transform: scale(1.05);
+        }
+
+        /* Input Container */
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Highlighted Input Boxes */
+        .input-container select, .input-container input, .input-container textarea, .input-container p {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #ff6a00; /* Highlighted border with VZ Orange */
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: center;
+            background: #ffffff; /* White background for readability */
+            color: #000000; /* Black text for clarity */
+        }
+
+        .input-container label {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #000000; /* Black text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Passport Generator</h1>
+
+        <!-- Single Passport Number Generation -->
+        <h2>Generate a Single Passport Number</h2>
+        <div class="input-container">
+            <label for="countryCode">Choose a Country:</label>
+            <select id="countryCode" disabled>
+                <option value="NL">Netherlands</option>
+            </select>
+        </div>
+        <button onclick="generatePassport()">Generate Single Passport Number</button>
+        <div class="input-container">
+            <p id="passportResult">Generated Passport Number will appear here.</p>
+        </div>
+
+        <!-- Multiple Passport Numbers Generation -->
+        <h2>Generate Multiple Passport Numbers</h2>
+        <div class="input-container">
+            <label for="countInput">Enter Count (Max = 10):</label>
+            <input type="number" id="countInput" min="1" max="10" placeholder="Enter count">
+        </div>
+        <button onclick="generateMultiplePassports()">Generate Multiple Passport Numbers</button>
+        <div class="input-container">
+            <label for="passportResults">Generated Passport Numbers:</label>
+            <textarea id="passportResults" rows="5" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate a single Passport number
+        function generatePassport() {
+            const passportResult = document.getElementById("passportResult");
+            const passportNumber = generatePassportNumber();
+
+            passportResult.textContent = `Generated Passport Number: ${passportNumber}`;
+            passportResult.style.color = "#000000"; // Reset color to default
+        }
+
+        // Function to generate multiple Passport numbers
+        function generateMultiplePassports() {
+            const countInput = document.getElementById("countInput");
+            const count = parseInt(countInput.value, 10);
+            const passportResults = document.getElementById("passportResults");
+
+            // Validate input
+            if (isNaN(count) || count < 1 || count > 10) {
+                alert("Please enter a valid count between 1 and 10.");
+                return;
+            }
+
+            let passports = [];
+            for (let i = 0; i < count; i++) {
+                passports.push(generatePassportNumber());
+            }
+
+            // Display the Passport Numbers in the textarea
+            passportResults.value = passports.join('\n');
+        }
+
+        // Function to generate a random Passport number
+        function generatePassportNumber() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
+            let passportNumber = 'N'; // Start with "N"
+
+            for (let i = 1; i < 9; i++) { // 8 more characters to complete the 9-character number
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                passportNumber += characters[randomIndex];
+            }
+
+            return passportNumber;
+        }
+    </script>
+</body>
+</html>
