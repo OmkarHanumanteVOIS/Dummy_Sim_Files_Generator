@@ -149,16 +149,46 @@
 
         // Function to generate a random Passport number
         function generatePassportNumber() {
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
-            let passportNumber = 'N'; // Start with "N"
+    const letters = 'ABCDEFGHIJKLMNPQRSTUVWXYZ'; // Excludes 'O'
+    const digits = '0123456789';
 
-            for (let i = 1; i < 9; i++) { // 8 more characters to complete the 9-character number
-                const randomIndex = Math.floor(Math.random() * characters.length);
-                passportNumber += characters[randomIndex];
-            }
+    let passportNumber = 'N'; // Always starts with 'N'
 
-            return passportNumber;
+    // Generate next six characters (can be letters or digits)
+    for (let i = 0; i < 6; i++) {
+        const characterSet = Math.random() < 0.5 ? letters : digits; // Randomly choose letters or digits
+        const randomIndex = Math.floor(Math.random() * characterSet.length);
+        passportNumber += characterSet[randomIndex];
+    }
+
+    // Generate last digit
+    passportNumber += digits[Math.floor(Math.random() * digits.length)];
+
+    // Calculate and append check digit
+    passportNumber += calculateCheckDigit(passportNumber);
+
+    return passportNumber;
+}
+
+// Check Digit Calculation (Modulo 10 Algorithm)
+function calculateCheckDigit(passportNumber) {
+    let sum = 0;
+    const weight = [7, 3, 1, 7, 3, 1, 7, 3, 1]; // Weights for each position
+
+    for (let i = 0; i < passportNumber.length; i++) {
+        let charValue = passportNumber[i];
+        
+        if (isNaN(charValue)) { // Convert letters to numeric equivalent
+            charValue = charValue.charCodeAt(0) - 55; // 'A' = 10, 'B' = 11, etc.
+        } else {
+            charValue = parseInt(charValue, 10);
         }
+
+        sum += charValue * weight[i]; // Apply weight
+    }
+
+    return sum % 10; // Check digit is Modulo 10 of the sum
+}
     </script>
 </body>
 </html>
