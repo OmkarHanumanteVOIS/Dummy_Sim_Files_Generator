@@ -118,6 +118,11 @@ h1 {
     background-image: url("assets/kvk.png"); /* KVK Number Generator clipart */
 }
 
+.utility-box[href*="chatbot.html"] {
+    background-image: url("assets/chatbot.png"); /* Chatbot Icon */
+}
+
+
 /* Text Below Cliparts */
 .utility-box p {
     margin-top: auto; /* Push text below the clipart */
