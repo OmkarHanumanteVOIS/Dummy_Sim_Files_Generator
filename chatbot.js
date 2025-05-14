@@ -1,4 +1,4 @@
-const OPENROUTER_API_KEY = "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"; // Replace with actual key
+const OPENROUTER_API_KEY = "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"; // Replace with actual key
 
 async function getAIResponse(userMessage) {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -6,11 +6,11 @@ async function getAIResponse(userMessage) {
         headers: {
             "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://yourgithubrepo.com", // Optional
+            "HTTP-Referer": "https://voisvznlutility.github.io/", // Optional
             "X-Title": "Utility AI Chatbot" // Optional
         },
         body: JSON.stringify({
-            "model": "deepseek/deepseek-r1:free",
+            "model": "deepseek/deepseek-chat:free",
             "messages": [{ "role": "user", "content": userMessage }]
         })
     });
