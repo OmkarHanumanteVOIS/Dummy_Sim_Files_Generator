@@ -1,4 +1,4 @@
-const OPENAI_API_KEY = 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; // Replace with actual OpenAI API key
+const OPENAI_API_KEY = "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"; // Replace with actual OpenAI API key
 
 async function getChatGPTResponse(userMessage) {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
