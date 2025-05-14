@@ -1,15 +1,17 @@
-const DEEPSEEK_API_KEY = "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"; // Replace with your actual key
+const OPENROUTER_API_KEY = "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"; // Replace with actual key
 
-async function getDeepSeekResponse(userMessage) {
-    const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
+async function getAIResponse(userMessage) {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-            "Authorization": `Bearer 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`,
-            "Content-Type": "application/json"
+            "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://yourgithubrepo.com", // Optional
+            "X-Title": "Utility AI Chatbot" // Optional
         },
         body: JSON.stringify({
-            model: "deepseek/deepseek-r1:free",
-            messages: [{ role: "user", content: userMessage }],
+            "model": "deepseek/deepseek-r1:free",
+            "messages": [{ "role": "user", "content": userMessage }]
         })
     });
 
@@ -25,7 +27,7 @@ async function sendMessage() {
     chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
 
     // Get AI-generated response
-    let response = await getDeepSeekResponse(userInput);
+    let response = await getAIResponse(userInput);
     chatBox.innerHTML += `<p><strong>AI:</strong> ${response}</p>`;
 
     // Clear input field
