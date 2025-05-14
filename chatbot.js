@@ -4,7 +4,7 @@ async function getDeepSeekResponse(userMessage) {
     const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
         method: "POST",
         headers: {
-            "Authorization": `Bearer ${DEEPSEEK_API_KEY}`,
+            "Authorization": `Bearer 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`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
