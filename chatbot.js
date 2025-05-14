@@ -8,7 +8,7 @@ async function getDeepSeekResponse(userMessage) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            model: "deepseek-r1",
+            model: "deepseek/deepseek-r1:free",
             messages: [{ role: "user", content: userMessage }],
         })
     });
