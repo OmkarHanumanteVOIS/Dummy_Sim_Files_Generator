@@ -2,7 +2,7 @@ require('dotenv').config(); // Load environment variables
 const fetch = require('node-fetch');
 
 const API_HOST = "https://openrouter.ai/api/v1/chat/completions";
-const API_KEY = "process.env.OPENROUTER_API_KEY"; // Store API key securely
+const API_KEY = process.env.OPENROUTER_API_KEY; // Store API key securely
 const SITE_URL = "https://voisvznlutility.github.io"; // Your site URL
 const SITE_NAME = "Utility AI Chatbot"; // Your site title
 
