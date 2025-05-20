@@ -2,7 +2,7 @@ require('dotenv').config(); // Load environment variables
 const fetch = require('node-fetch');
 
 const API_HOST = "https://openrouter.ai/api/v1/chat/completions";
-const API_KEY = "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"; // Store API key securely
+const API_KEY = "process.env.OPENROUTER_API_KEY"; // Store API key securely
 const SITE_URL = "https://voisvznlutility.github.io"; // Your site URL
 const SITE_NAME = "Utility AI Chatbot"; // Your site title
 
@@ -46,3 +46,5 @@ async function sendMessage() {
     // Clear input field
     document.getElementById("user-input").value = "";
 }
+
+console.log("OPENROUTER_API_KEY:", process.env.OPENROUTER_API_KEY);
