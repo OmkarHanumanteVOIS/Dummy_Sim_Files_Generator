@@ -1,24 +1,35 @@
-// chatbot.js - Secure ALTCHA API Integration
-require('dotenv').config(); // Load environment variables (for security)
+require('dotenv').config(); // Load environment variables
 const fetch = require('node-fetch');
 
-const API_HOST = "https://voisvznlutility.github.io";
-const API_KEY = "ckey_0166287f6517f91d7a623857b5f7";  // Securely stored API key
-const API_SECRET = "csec_a284b2be1c8495ee69f88efc3a2e416067309d390ae200ee";
+const API_HOST = "https://openrouter.ai/api/v1/chat/completions";
+const API_KEY = process.env.OPENROUTER_API_KEY; // Store API key securely
+const SITE_URL = "https://voisvznlutility.github.io"; // Your site URL
+const SITE_NAME = "Utility AI Chatbot"; // Your site title
 
-async function getUtilityResponse(userMessage) {
-    const response = await fetch(`${API_HOST}/process`, {
-        method: "POST",
-        headers: {
-            "Authorization": `Bearer ${API_KEY}`,
-            "X-Secret": API_SECRET,
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ query: userMessage })
-    });
+async function getAIResponse(userMessage) {
+    try {
+        const response = await fetch(API_HOST, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${API_KEY}`,
+                "HTTP-Referer": SITE_URL, // Optional. For rankings.
+                "X-Title": SITE_NAME, // Optional. For rankings.
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "model": "deepseek/deepseek-r1:free",
+                "messages": [
+                    { "role": "user", "content": userMessage }
+                ]
+            })
+        });
 
-    const data = await response.json();
-    return data.response || "Oops! No response received.";
+        const data = await response.json();
+        return data.choices?.[0]?.message?.content || "Oops! No response received.";
+    } catch (error) {
+        console.error("API Error:", error);
+        return "Error connecting to AI service.";
+    }
 }
 
 async function sendMessage() {
@@ -29,7 +40,7 @@ async function sendMessage() {
     chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
 
     // Get AI-generated response
-    let response = await getUtilityResponse(userInput);
+    let response = await getAIResponse(userInput);
     chatBox.innerHTML += `<p><strong>AI:</strong> ${response}</p>`;
 
     // Clear input field
